@@ -100,7 +100,7 @@ namespace GDeflate
         }
     }
 
-    bool Decompress(uint8_t* output, size_t outputSize, const uint8_t* in, size_t inSize, uint32_t numWorkers)
+    extern "C" bool Decompress(uint8_t* output, size_t outputSize, const uint8_t* in, size_t inSize, uint32_t numWorkers)
     {
         if (nullptr == output || nullptr == in || 0 == outputSize || 0 == inSize)
             return false;

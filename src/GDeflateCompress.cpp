@@ -236,7 +236,7 @@ namespace GDeflate
         return true;
     }
 
-    size_t CompressBound(size_t size)
+    extern "C" size_t CompressBound(size_t size)
     {
         size_t numTiles = std::min(size_t(TileStream::kMaxTiles), (size + kDefaultTileSize - 1) / kDefaultTileSize);
         numTiles = std::max(size_t(1), numTiles);
@@ -248,7 +248,7 @@ namespace GDeflate
         return numTiles * tileSize + sizeof(TileStream) + sizeof(uint64_t);
     }
 
-    bool Compress(uint8_t* output, size_t* outputSize, const uint8_t* in, size_t inSize, uint32_t level, uint32_t flags)
+    extern "C" bool Compress(uint8_t* output, size_t* outputSize, const uint8_t* in, size_t inSize, uint32_t level, uint32_t flags)
     {
         return DoCompress(output, outputSize, in, inSize, level, flags);
     }

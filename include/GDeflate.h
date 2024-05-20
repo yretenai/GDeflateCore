@@ -51,9 +51,9 @@ namespace GDeflate
         COMPRESS_SINGLE_THREAD = 0x200, /*!< Force compression using a single thread. */
     };
 
-    GDEFLATE_SHARED size_t CompressBound(size_t size);
+    extern "C" GDEFLATE_SHARED size_t CompressBound(size_t size);
 
-    GDEFLATE_SHARED bool Compress(
+    extern "C" GDEFLATE_SHARED bool Compress(
         uint8_t* output,
         size_t* outputSize,
         const uint8_t* in,
@@ -61,6 +61,6 @@ namespace GDeflate
         uint32_t level,
         uint32_t flags);
 
-    GDEFLATE_SHARED bool Decompress(uint8_t* output, size_t outputSize, const uint8_t* in, size_t inSize, uint32_t numWorkers);
+    extern "C" GDEFLATE_SHARED bool Decompress(uint8_t* output, size_t outputSize, const uint8_t* in, size_t inSize, uint32_t numWorkers);
 
 } // namespace GDeflate
