@@ -28,7 +28,7 @@ sources = files(
 )
 
 libgdeflate = library(
-  'libgdeflate',
+  'GDeflate',
   sources,
   c_args: c_args,
   install: true,

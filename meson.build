@@ -12,7 +12,7 @@ project(
 
 cpp_args = ['-DGDEFLATE_BUILDING']
 
-libgdeflate_dep = dependency('libgdeflate')
+gdeflate_dep = dependency('GDeflate')
 
 gdeflate_core = library(
   'GDeflateCore',
@@ -23,7 +23,7 @@ gdeflate_core = library(
   install: true,
   version: '1.0.0',
   cpp_args: cpp_args,
-  dependencies: [libgdeflate_dep],
+  dependencies: [gdeflate_dep],
   gnu_symbol_visibility: 'hidden'
 )
 

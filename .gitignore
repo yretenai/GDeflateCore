@@ -46,6 +46,5 @@ vcs.xml
 .clangd
 
 subprojects/*
-!subprojects/GDeflate
 !subprojects/packagefiles
 !subprojects/*.wrap
