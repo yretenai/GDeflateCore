@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: python -m pip install meson==1.4.0 ninja
       - name: Configure Project
-        run: meson setup build/ --prefix ${{ github.workspace }}/artifact/ --optimization 3 
+        run: meson setup build/ --buildtype release --prefix ${{ github.workspace }}/artifact/ --optimization 3
       - name: Build
         run: ninja -C build install
       - name: Upload Build

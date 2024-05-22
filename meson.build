@@ -3,8 +3,9 @@ project(
   'cpp',
   license: 'Apache-2.0',
   default_options: [
-    'buildtype=release',
-    'warning_level=3'
+    'prefix=/usr',
+    'warning_level=3',
+    'cpp_std=c++11'
   ],
   version: '1.0.0',
   meson_version: '>=0.63.0'

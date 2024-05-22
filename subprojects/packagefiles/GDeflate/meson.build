@@ -3,8 +3,9 @@ project(
   'c',
   license: 'Apache-2.0',
   default_options: [
-    'buildtype=release',
-    'warning_level=3'
+    'prefix=/usr',
+    'warning_level=3',
+    'c_std=c11'
   ],
   version: '1.8.0',
   meson_version: '>=0.50.0'
