@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-#include "../include/GDeflate.h"
+#include "../include/GDeflateCore.h"
 #include "TileStream.h"
 #include "Utils.h"
 

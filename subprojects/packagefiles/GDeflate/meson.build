@@ -28,7 +28,7 @@ sources = files(
     'lib/x86/cpu_features.c',
 )
 
-libgdeflate = library(
+libgdeflate = both_libraries(
   'GDeflate',
   sources,
   c_args: c_args,
@@ -37,8 +37,13 @@ libgdeflate = library(
   gnu_symbol_visibility: 'hidden'
 )
 
-libgdeflate_dep = declare_dependency(
-  link_with: libgdeflate,
+libgdeflate_static_dep = declare_dependency(
+  link_with: libgdeflate.get_static_lib(),
+  include_directories: '.'
+)
+
+libgdeflate_shared_dep = declare_dependency(
+  link_with: libgdeflate.get_shared_lib(),
   include_directories: '.'
 )
 
@@ -48,9 +53,17 @@ install_headers(
 
 pkg_mod = import('pkgconfig')
 pkg_mod.generate(
-	name: 'gdeflate',
-	filebase: 'libgdeflate',
+	name: 'GDeflate',
+	filebase: 'GDeflate',
 	description: '',
-	libraries: libgdeflate,
+	libraries: libgdeflate_shared_dep,
+	version: '1.8.0',
+)
+
+pkg_mod.generate(
+	name: 'GDeflateStatic',
+	filebase: 'GDeflateStatic',
+	description: '',
+	libraries: libgdeflate_static_dep,
 	version: '1.8.0',
 )

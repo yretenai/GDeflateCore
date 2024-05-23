@@ -6,4 +6,5 @@ patch_directory = GDeflate
 diff_files = diffs/GDeflate-0001.patch
 
 [provide]
-GDeflate = libgdeflate_dep
+GDeflate = libgdeflate_shared_dep
+GDeflateStatic = libgdeflate_static_dep
