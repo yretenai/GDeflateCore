@@ -43,13 +43,11 @@ namespace GDeflate
     {
         if (!header->IsValid())
         {
-            printf("Malformed stream encountered.\n");
             return false;
         }
 
         if (header->id != kGDeflateId)
         {
-            printf("Unknown stream format: %d\n", header->id);
             return false;
         }
 
@@ -115,15 +113,9 @@ namespace GDeflate
         if (!ValidateStream(header))
             return false;
 
-        std::thread workers[kMaxWorkers];
 
         // Run a tile per thread
-        header = reinterpret_cast<const TileStream*>(in);
-
-        if (!ValidateStream(header))
-        {
-            return false;
-        }
+        std::thread workers[kMaxWorkers];
 
         DecompressionContext context{};
 
