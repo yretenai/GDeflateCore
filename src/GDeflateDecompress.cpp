@@ -133,6 +133,11 @@ namespace GDeflate
         context.outputPtr = output;
         context.outputSize = header->GetUncompressedSize();
 
+        if (context.outputSize > outputSize)
+        {
+            return false;
+        }
+
         context.globalIndex = 0;
         context.numItems = header->numTiles;
 
