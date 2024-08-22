@@ -43,5 +43,5 @@ pkg_mod.generate(
 	filebase: 'GDeflateCore',
 	description: '',
 	libraries: gdeflate_core_dep,
-	version: '1.0.0',
+	version: meson.project_version(),
 )
