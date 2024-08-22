@@ -89,13 +89,15 @@ namespace GDeflate
                 tileIndex < context.numItems - 1 ? tileOffsets[tileIndex + 1] - tileOffset : tileOffsets[0];
 
             auto outputOffset = tileIndex * kDefaultTileSize;
+            auto outputSize =
+                tileIndex == context.numItems - 1 ? context.outputSize - outputOffset : kDefaultTileSize;
 
             libdeflate_gdeflate_decompress(
                 decompressor.get(),
                 &compressedPage,
                 1,
                 context.outputPtr + outputOffset,
-                static_cast<size_t>(kDefaultTileSize),
+                static_cast<size_t>(outputSize),
                 nullptr);
         }
     }
