@@ -7,7 +7,7 @@ project(
     'warning_level=3',
     'cpp_std=c++11'
   ],
-  version: '1.0.2',
+  version: '1.0.3',
   meson_version: '>=0.63.0'
 )
 
