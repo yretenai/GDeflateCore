@@ -22,7 +22,7 @@ gdeflate_core = library(
     'src/GDeflateDecompress.cpp'
   ],
   install: true,
-  version: '1.0.2',
+  version: meson.project_version(),
   cpp_args: cpp_args,
   dependencies: [gdeflate_static_dep],
   gnu_symbol_visibility: 'hidden'
