@@ -25,6 +25,7 @@ sources = files(
     'lib/utils.c',
     'lib/zlib_compress.c',
     'lib/zlib_decompress.c',
+    'lib/arm/cpu_features.c',
     'lib/x86/cpu_features.c',
 )
 
