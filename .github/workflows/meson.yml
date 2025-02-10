@@ -39,14 +39,14 @@ jobs:
         run: |
           call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=amd64
           meson setup subprojects/GDeflate build_gdeflate/ --buildtype release --prefix ${{ github.workspace }}/artifact_gdeflate/ -Ddefault_library=${{ matrix.build_type }} --optimization 3
-          meson compile -C build
-          meson install -C build
+          meson compile -C build_gdeflate
+          meson install -C build_gdeflate
       - name: Compile GDeflate (other)
         if: matrix.os != 'windows-latest'
         run: |
           meson setup subprojects/GDeflate build_gdeflate/ --buildtype release --prefix ${{ github.workspace }}/artifact_gdeflate/ -Ddefault_library=${{ matrix.build_type }} --optimization 3
-          meson compile -C build
-          meson install -C build
+          meson compile -C build_gdeflate
+          meson install -C build_gdeflate
       - name: Upload Build
         uses: actions/upload-artifact@v4
         with:
